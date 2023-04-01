@@ -26,7 +26,7 @@ function TodoList(props) {
     }
   };
   return (
-    // removed property for tasks that are added through createProduct, which is to edit, because the tasks added are dummy
+    // removed property for items that are added by us, which is to edit, because the tasks added are dummy
     // objects and are not actually added to API service
     <div className="todo-list">
       <ul id="list-item">
