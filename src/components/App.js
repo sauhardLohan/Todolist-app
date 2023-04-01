@@ -156,7 +156,7 @@ function App() {
     }
   };
   const handleEdit = async (id, edit) => {
-    // on click of edit button setting edit property of item to be true 
+    // on click of edit button setting edit property of item to be true/false 
     const listItem = lists.filter((list) => {
       return list.id === id;
     })[0];
