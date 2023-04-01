@@ -135,7 +135,7 @@ function App() {
         progress: undefined,
         theme: "light",
       });
-      // deleting item from lists in state 
+      // deleting item from lists in state
       setLists(
         lists.filter((list) => {
           return list.id !== id;
@@ -156,7 +156,7 @@ function App() {
     }
   };
   const handleEdit = async (id, edit) => {
-    // on click of edit button setting edit property of item to be true/false 
+    // on click of edit button setting edit property of item to be true/false
     const listItem = lists.filter((list) => {
       return list.id === id;
     })[0];

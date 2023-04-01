@@ -20,46 +20,40 @@ function TodoList(props) {
         return;
       }
       // calling handleUpdate function to update the changed title
-      const response = await handleUpdate(
-        id,
-        e.target.value,
-        userID,
-        completed
-      );
+      await handleUpdate(id, e.target.value, userID, completed);
       // setting edit mode false for the list item
       handleEdit(id, false);
     }
   };
   return (
-        // removed property for tasks that are added through createProduct, which is to edit, because the tasks added are dummy 
-    // objects and are not actually added to API service 
+    // removed property for tasks that are added through createProduct, which is to edit, because the tasks added are dummy
+    // objects and are not actually added to API service
     <div className="todo-list">
       <ul id="list-item">
         <li>
-          {id <= 200? (edit ? (
-            <input
-              defaultValue={title}
-              id="edit"
-              onKeyDown={handleChangeTitle}
-            />
-          ) : (
-            <div id="list-item-info">
+          {id <= 200 ? (
+            edit ? (
               <input
-                type="checkbox"
-                id={`task-${id}`}
-                checked={completed}
-                onChange={() => {
-                handleUpdate(id, title, userID, !completed);
-                }}
+                defaultValue={title}
+                id="edit"
+                onKeyDown={handleChangeTitle}
               />
-              <label
-                htmlFor={`task-${id}`}
-              >
-                {title}
-              </label>
-            </div>
-          )):
-          <p>{title}</p>}
+            ) : (
+              <div id="list-item-info">
+                <input
+                  type="checkbox"
+                  id={`task-${id}`}
+                  checked={completed}
+                  onChange={() => {
+                    handleUpdate(id, title, userID, !completed);
+                  }}
+                />
+                <label htmlFor={`task-${id}`}>{title}</label>
+              </div>
+            )
+          ) : (
+            <p>{title}</p>
+          )}
 
           <div>
             {edit ? null : (
@@ -92,7 +86,6 @@ function TodoList(props) {
         </li>
       </ul>
     </div>
-
   );
 }
 
